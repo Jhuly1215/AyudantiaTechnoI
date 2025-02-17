@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa con LeafletJS</title>
+
+     <!-- Hoja de estilos de Leaflet desde un CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        /* Establecemos el tamaño del div que contendrá el mapa */
+        #map { 
+            height: 400px; /* El mapa tendrá una altura de 400 píxeles */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor div donde se muestra el mapa -->
+    <div id="map"> </div>
+
+    <!-- Importar librería JavaScript de Leaflet desde un CDN -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Inicializamos el mapa y lo asignamos al div con id "map"
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        // 'setView' establece la vista inicial del mapa con las coordenadas:
+        //  - Latitud: 51.505
+        //  - Longitud: -0.09
+        //  - Zoom: 13
+
+        // Agregamos una capa de mapa base desde OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors' // Mostramos la atribución de OpenStreetMap
+        }).addTo(map); // Añadimos la capa al mapa
+    </script>
+
+</body>
+</html>
